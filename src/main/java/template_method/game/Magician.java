@@ -1,4 +1,4 @@
-package game;
+package template_method.game;
 
 public class Magician extends EnemyTemplate {
 

@@ -1,4 +1,4 @@
-package domain;
+package template_method.domain;
 
 public class ConcreteTemplate extends TemplateMethod{
 

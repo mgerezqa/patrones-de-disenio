@@ -1,4 +1,4 @@
-package game;
+package template_method.game;
 
 public class  TestEnemyTemplate {
 public static void main(String[] args) {

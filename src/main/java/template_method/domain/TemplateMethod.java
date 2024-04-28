@@ -1,4 +1,4 @@
-package domain;
+package template_method.domain;
 
 
 /*Template Method es un patrón de diseño de comportamiento
