@@ -20,3 +20,9 @@ extender fácilmente con subclases, manteniendo intacta la estructura  definida 
 * Utiliza el patrón cuando tengas muchas clases que contengan
 algoritmos casi idénticos, pero con algunas diferencias mínimas. Como resultado, puede que tengas que modificar todas
 las clases cuando el algoritmo cambie.
+
+* Cuando conviertes un algoritmo así en un método plantilla,
+  también puedes elevar los pasos con implementaciones similares
+  a una superclase, eliminando la duplicación del código.
+  El código que varía entre subclases puede permanecer en las
+  subclases.
