@@ -1,51 +1,39 @@
-![img.png](img.png)
+![img_1.png](img_1.png)
 
-1. La clase Contexto almacena una referencia a uno de los objetos
-   de estado concreto y le delega todo el trabajo específico
-   del estado. El contexto se comunica con el objeto de estado a
-   través de la interfaz de estado. El contexto expone un modificador
-   (setter) para pasarle un nuevo objeto de estado.
-2. La interfaz Estado declara los métodos específicos del estado.
-   Estos métodos deben tener sentido para todos los estados concretos,
-   porque no querrás que uno de tus estados tenga métodos
-   inútiles que nunca son invocados.
-3. Los Estados Concretos proporcionan sus propias implementaciones
-   para los métodos específicos del estado. Para evitar la
-   duplicación de código similar a través de varios estados, puedes
-   incluir clases abstractas intermedias que encapsulen algún
-   comportamiento común.
-   Los objetos de estado pueden almacenar una referencia inversa
-   al objeto de contexto. A través de esta referencia, el estado
-   puede extraer cualquier información requerida del objeto de
-   contexto, así como iniciar transiciones de estado.
-4. Tanto el estado de contexto como el concreto pueden establecer
-   el nuevo estado del contexto y realizar la transición de
-   estado sustituyendo el objeto de estado vinculado al contexto.
+1. La clase Cliente contiene la lógica de negocio existente del
+   programa.
+2. La Interfaz con el Cliente describe un protocolo que otras clases
+   deben seguir para poder colaborar con el código cliente.
+3. Servicio es alguna clase útil (normalmente de una tercera
+   parte o heredada). El cliente no puede utilizar directamente
+   esta clase porque tiene una interfaz incompatible.
+4. La clase Adaptadora es capaz de trabajar tanto con la clase
+   cliente como con la clase de servicio: implementa la interfaz
+   con el cliente, mientras envuelve el objeto de la clase de servicio.
+   La clase adaptadora recibe llamadas del cliente a través
+   de la interfaz adaptadora y las traduce en llamadas al objeto
+   envuelto de la clase de servicio, pero en un formato que pueda
+   comprender.
+5. El código cliente no se acopla a la clase adaptadora concreta siempre y cuando funcione con la clase adaptadora a través
+      de la interfaz con el cliente. Gracias a esto, puedes introducir
+      nuevos tipos de adaptadores en el programa sin descomponer
+      el código cliente existente. Esto puede resultar útil cuando la
+      interfaz de la clase de servicio se cambia o sustituye, ya que
+      puedes crear una nueva clase adaptadora sin cambiar el código
+      cliente.
 
-### Aplicabilidad 
-
-*   Utiliza el patrón State cuando tengas un objeto que se comporta
-de forma diferente dependiendo de su estado actual, el número
-de estados sea enorme y el código específico del estado
-cambie con frecuencia.
-
-* El patrón sugiere que extraigas todo el código específico del
-  estado y lo metas dentro de un grupo de clases específicas.
-  Como resultado, puedes añadir nuevos estados o cambiar los
-  existentes independientemente entre sí, reduciendo el costo
-  de mantenimiento.
-* Utiliza el patrón cuando tengas una clase contaminada con
-  enormes condicionales que alteran el modo en que se comporta
-  la clase de acuerdo con los valores actuales de los campos
-  de la clase.
-* El patrón State te permite extraer ramas de esos condicionales
-  a métodos de las clases estado correspondientes. Al hacerlo,
-  también puedes limpiar campos temporales y métodos de
-  ayuda implicados en código específico del estado de fuera de
-  tu clase principal.
-* Utiliza el patrón State cuando tengas mucho código duplicado
-  por estados similares y transiciones de una máquina de estados
-  basada en condiciones.
-* El patrón State te permite componer jerarquías de clases de
-  estado y reducir la duplicación, extrayendo el código común y
-  metiéndolo en clases abstractas base.
+### Aplicabilidad
+* Utiliza la clase adaptadora cuando quieras usar una clase existente,
+pero cuya interfaz no sea compatible con el resto del
+código.
+* El patrón Adapter te permite crear una clase intermedia que
+  sirva como traductora entre tu código y una clase heredada,
+  una clase de un tercero o cualquier otra clase con una interfaz
+  extraña.
+* Utiliza el patrón cuando quieras reutilizar varias subclases existentes
+  que carezcan de alguna funcionalidad común que no
+  pueda añadirse a la superclase.
+* Puedes extender cada subclase y colocar la funcionalidad que
+  falta, dentro de las nuevas clases hijas. No obstante, deberás
+  duplicar el código en todas estas nuevas clases, lo cual huele
+  muy mal.
