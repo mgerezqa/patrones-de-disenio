@@ -1,4 +1,4 @@
-package game;
+package state.game;
 
 public class  TestEnemyTemplate {
 public static void main(String[] args) {

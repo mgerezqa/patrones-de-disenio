@@ -1,4 +1,4 @@
-package game;
+package state.game;
 
 public class Magician extends EnemyTemplate {
 
